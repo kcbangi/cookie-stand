@@ -1,6 +1,6 @@
 'use strict';
 
-var time = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
+var time = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Total'];
 var table1 = document.createElement('table');
 
 function CookieStand(location, min, max, avg) {
@@ -20,8 +20,8 @@ function CookieStand(location, min, max, avg) {
     for (var i = 0; i < time.length; i++) {
       this.perHour[i] = this.cookies();
     }
-    for (var i = 0; i < this.perHour.length; i++) {
-      this.perDay += this.perHour[i];
+    for (var j = 0; j < this.perHour.length; j++) {
+      this.perDay += this.perHour[j];
     }
     return this.perHour;
   };
@@ -64,6 +64,34 @@ var setTable = function() {
   }
 };
 
+function makeFooterRow() {
+  var table5 = document.createElement('tr');
+  var table6 = document.createElement('th');
+  table6.textContent = 'Hourly Totals for all location';
+  table5.appendChild(table6);
+
+  var totalOfTotals = 0;
+  var hourlyTotal = 0;
+
+  for(var i = 0; i < time.length; i++) {   
+    hourlyTotal = 0;
+    for(var j = 0; j < location.length; j++) {
+      hourlyTotal += location[j].perHour[i];
+      totalOfTotals += location[j].perHour[i];
+    }
+    table6 = document.createElement('th');
+    table6.textContent = hourlyTotal;
+    totalOfTotals.appendChild(table6);
+  }
+  table6 = document.createElement('th');
+  table6.textContent = totalOfTotals;
+  table5.appendChild(table6);
+
+  table1.appendChild(table5);
+}
+
+
+
 var firstAndPike = new CookieStand ('1st and Pike', 23, 65, 6.3);
 var seatacAirport = new CookieStand ('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new CookieStand ('Seattle Center', 11, 38, 3.7);
@@ -71,8 +99,11 @@ var capitol = new CookieStand ('Capitol Hill', 20, 38, 2.3);
 var alki = new CookieStand ('Alki', 2, 16, 4.6);
 
 setTable();
+
 firstAndPike.render();
 seatacAirport.render();
 seattleCenter.render();
 capitol.render();
 alki.render();
+
+makeFooterRow();
