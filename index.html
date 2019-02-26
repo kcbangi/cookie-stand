@@ -1,34 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title> Salmon Cookies Sales </title>
+        <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <h1>Salmon Cookies Sales</h1>
-        
-        <table id="sales-table"></table>
+        <header>
+            <div class="logo">
+                    <a href="#"><img src="img/salmon.png"></a>
+            </div>
+            <div id="name">
+                <h1>Salmon Cookies</h1>
+            </div>
+            <nav id="info">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#">LOCATION</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+            <hr>
+        </header>
+    
+        <section>
+            <div id="family">
+                <a href="#"><img src="img/family.jpg"></a>
+            </div>
+            <hr>
+            <h3>Shop</h3>
+            <div id="shop">
+                <a href="#"><img src="img/cutter.jpeg"> <br>Cutter $5</a>
+                <a href="#"><img src="img/frosted-cookie.jpg"><br>Frosted cookie $2</a>
+                <a href="#"><img src="img/fish.jpg"><br>Cookie set $7</a>
+                <a href="#"><img src="img/shirt.jpg"><br>Shirt $25</a>
+                <a href="#"><img src="img/chinook.jpg"><br>Sticker $4</a>
+            </div>  
+        </section>
 
-        <form id="formid">
-            <fieldset>
-                <legend> Add Store </legend>
-                    <label for="storeName"> Location Name: </label>
-                    <input name="storeName" type="text" size="30" max length="100"><br>
-                    
-                    <label for="mini">Minimum customer per hour:</label>
-                    <input name="mini" type="text" size="30" maxlength="100"><br>
-                    
-                    <label for="maxi">Maximum customer per hour:</label>
-                    <input name="maxi" type="text" size="30" maxlength="100"><br>
-                    
-                    <label for="avge">Average cookies per customer:</label>
-                    <input name="avge" type="text" size="30" maxlength="100"><br>
-                    
-                    <button id="comment-button" type ="submit">Submit</button>
-            </fieldset>
-        </form>
-
-        <script src="js/app.js"></script>
+        <!-- <script src="js/app.js"></script> -->
     </body>
+
+    <footer>
+        <div id="loc">
+            <h4>HOURS & LOCATION<br></h4>
+            <p1><br>Mon - Sun 6:00AM - 8:00PM<br></p1>
+            <ul>
+                <li><br>1st Avenue and Pike Street<br>1531 Western Ave, Seattle, WA 98101<br></li>
+                <li><br>SeaTac Airport<br>17801 International Blvd, Seattle, WA 98158<br></li>
+                <li><br>Seattle Center<br>305 Harrison St, Seattle, WA 98109<br></li>
+                <li><br>Capitol Hill<br>860 Terry Ave N, Seattle, WA 98109<br></li>
+                <li><br>Alki Beach<br>1702 Alki Ave SW, Seattle, WA 98116<br></li>
+            </ul>
+        </div>
+        <div id=contact>
+            <h4>CONTACT INFORMATION</h4>
+            <p><br>pacificnw@salmoncookies.com</p>
+            <p><br>253COOKIES / 253-266-5437</p>
+        </div>
+    </footer>
 </html>
